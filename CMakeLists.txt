@@ -288,6 +288,8 @@ ADD_LIBRARY (cryptopp
 	${cryptopp_HEADERS}
 )
 
+set_target_properties(cryptopp PROPERTIES COMPILE_FLAGS "-Wno-tautological-compare -Wno-unused-value -Wno-switch -Wno-shift-op-parentheses")
+
 IF (CRYPTOPP_BUILD_TESTS)
 	ENABLE_TESTING ()
 	# Generate your adhoc.cpp.proto
