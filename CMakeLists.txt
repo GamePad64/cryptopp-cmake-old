@@ -316,6 +316,8 @@ IF (CRYPTOPP_BUILD_TESTS)
 	)
 	TARGET_LINK_LIBRARIES (cryptest
 		cryptopp)
+	
+	set_target_properties(cryptest PROPERTIES COMPILE_FLAGS "-Wno-tautological-compare -Wno-unused-value -Wno-switch -Wno-shift-op-parentheses")
 	# Run validation tests
 	ADD_TEST (NAME cryptopp_validation_tests
 		COMMAND ${CMAKE_COMMAND} -E chdir ${CMAKE_CURRENT_SOURCE_DIR} $<TARGET_FILE:cryptest> v)
